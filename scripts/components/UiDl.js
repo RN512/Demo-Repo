@@ -21,7 +21,7 @@ class UiDl extends HTMLElement {
       );
 
       _div.append(_dt, _dd);
-      _dl.append(div);
+      _dl.append(_div);
 
     });
 
