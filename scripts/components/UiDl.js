@@ -2,7 +2,7 @@ class UiDl extends HTMLElement {
 
   connectedCallback() {
 
-    const dl = document.createElement('dl');
+    const _dl = document.createElement('dl');
 
     const lines = UiParser.lines(this);
 
@@ -10,22 +10,22 @@ class UiDl extends HTMLElement {
 
       const [dtText, ...ddText] = line.split(/\s+/);
 
-      const div = document.createElement('div');
-      const dt  = document.createElement('dt');
-      const dd  = document.createElement('dd');
+      const _div = document.createElement('div');
+      const _dt  = document.createElement('dt');
+      const _dd  = document.createElement('dd');
 
-      dt.textContent = dtText;
+      _dt.textContent = dtText;
 
-      dd.append(
+      _dd.append(
         UiParser.create(ddText.join(' '))
       );
 
-      div.append(dt, dd);
-      dl.append(div);
+      _div.append(_dt, _dd);
+      _dl.append(div);
 
     });
 
-    this.replaceWith(dl);
+    this.replaceWith(_dl);
 
   }
 

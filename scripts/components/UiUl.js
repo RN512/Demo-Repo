@@ -2,23 +2,23 @@ class UiUl extends HTMLElement {
 
   connectedCallback() {
 
-    const ul = document.createElement('ul');
+    const _ul = document.createElement('ul');
 
     const lines = UiParser.lines(this);
 
     lines.forEach(line => {
 
-      const li = document.createElement('li');
+      const _li = document.createElement('li');
 
-      li.append(
+      _li.append(
         UiParser.create(line)
       );
 
-      ul.append(li);
+      _ul.append(_li);
 
     });
 
-    this.replaceWith(ul);
+    this.replaceWith(_ul);
 
   }
 
