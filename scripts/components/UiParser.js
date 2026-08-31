@@ -1,10 +1,25 @@
 class UiParser {
 
-  // 文字列を解析して DOM を返す
+  // テキストを行ごとに分割
+  static lines(element) {
+
+    return element.textContent
+      .trim()
+      .split(/\r?\n/)
+      .map(line => line.trim())
+      .filter(line => line);
+
+  }
+
+
+  // テキストをHTML要素に変換
   static create(text) {
 
     const [type, ...words] = text.trim().split(/\s+/);
-    const label = words.join(' ');
+    const label = words
+      .filter(word => word !== '_blank')
+      .join(' ');
+
 
     // 内部リンク
     if (type.startsWith('#')) {
@@ -14,7 +29,12 @@ class UiParser {
       a.href = type;
       a.textContent = label;
 
+      if (words.includes('_blank')) {
+        a.target = '_blank';
+      }
+
       return a;
+
     }
 
 
@@ -23,56 +43,46 @@ class UiParser {
       type.startsWith('http://') ||
       type.startsWith('https://')
     ) {
+
       const a = document.createElement('a');
 
       a.href = type;
-      a.textContent = words.filter(word => word !== '_blank').join(' ');
+      a.textContent = label;
 
       if (words.includes('_blank')) {
         a.target = '_blank';
       }
 
       return a;
+
     }
 
 
     // メールリンク
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(type)) {
+
       const a = document.createElement('a');
 
       a.href = `mailto:${type}`;
       a.textContent = label;
 
       return a;
+
     }
 
-
     // 画像
-    if (type === '@img') {
+    if (type.startsWith('@img/')) {
+
       const img = document.createElement('img');
 
-      img.src = words.shift();
-      img.alt = words.join(' ');
+      img.src = type.substring(5);
+      img.alt = label;
 
       return img;
     }
 
-
-    // テキストのみ
+    // 通常のテキスト
     return document.createTextNode(text);
-
-  }
-
-
-
-  // 要素の中身を行ごとの配列にする
-  static lines(element) {
-
-    return element.textContent
-      .trim()
-      .split('\n')
-      .map(line => line.trim())
-      .filter(Boolean);
 
   }
 
