@@ -24,7 +24,8 @@
     <script src="./scripts/components/UiParser.js" defer></script>
     <script src="./scripts/components/UiUl.js"     defer></script>
     <script src="./scripts/components/UiDl.js"     defer></script>
-    <script src="./scripts/components/UiSubmit.js" defer></script>
+    <script src="./scripts/components/UiImg.js"    defer></script>
+    <script src="./scripts/components/UiButton.js" defer></script>
   </head>
 
   <body>
@@ -88,6 +89,8 @@
 
       </section>
 
+      <ui-button> ... </ui-button>
+
       <iframe frameborder="0" scrolling="no" src="https://www.openstreetmap.org/export/embed.html?bbox=139.728%2C35.657%2C139.737%2C35.663&amp;layer=mapnik&amp;marker=35.660177%2C139.732486"></iframe>
 
     </main>
@@ -120,6 +123,9 @@
           </address>
 
           <ui-ul>
+            <ui-img>
+              ./images/main-sp.jpg w200 h300 文字列
+            </ui-img>
             #news お知らせ
             #products 商品のご紹介
             #shop 店舗のご案内

@@ -16,8 +16,11 @@ class UiParser {
   static create(text) {
 
     const [type, ...words] = text.trim().split(/\s+/);
+
     const label = words
+
       .filter(word => word !== '_blank')
+
       .join(' ');
 
 
@@ -73,6 +76,84 @@ class UiParser {
 
     // 通常のテキスト
     return document.createTextNode(text);
+
+  }
+
+
+  // イメージタグ
+  static createImg(text) {
+
+    const words = text.trim().split(/\s+/);
+
+
+    // 画像URL
+    const src = words.shift();
+
+
+    let width = null;
+    let height = null;
+
+    const altWords = [];
+
+
+    // w200 / h200 を解析
+    words.forEach(word => {
+
+      // width
+      if (/^w\d+$/.test(word)) {
+
+        width = word.substring(1);
+
+      }
+
+      // height
+      else if (/^h\d+$/.test(word)) {
+
+        height = word.substring(1);
+
+      }
+
+      // その他はalt
+      else {
+
+        altWords.push(word);
+
+      }
+
+    });
+
+
+    // img要素を生成
+    const img = document.createElement('img');
+
+
+    // 属性の順番
+    // src → width → height → alt
+
+    img.setAttribute('src', src);
+
+
+    if (width) {
+
+      img.setAttribute('width', width);
+
+    }
+
+
+    if (height) {
+
+      img.setAttribute('height', height);
+
+    }
+
+
+    img.setAttribute(
+      'alt',
+      altWords.join(' ')
+    );
+
+
+    return img;
 
   }
 
