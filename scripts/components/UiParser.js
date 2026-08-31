@@ -48,7 +48,7 @@ class UiParser {
 
 
     // 画像
-    if (type === '@img/') {
+    if (type === '@img') {
       const img = document.createElement('img');
 
       img.src = words.shift();
