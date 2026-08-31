@@ -70,16 +70,6 @@ class UiParser {
 
     }
 
-    // 画像
-    if (type.startsWith('@img/')) {
-
-      const img = document.createElement('img');
-
-      img.src = type.substring(5);
-      img.alt = label;
-
-      return img;
-    }
 
     // 通常のテキスト
     return document.createTextNode(text);
