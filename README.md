@@ -3,51 +3,53 @@
 
 ## HTML ファイル上で、以下の記法で各 UI コンポーネントを利用できます
 
-用途 | 記述方
------ ----- ----- ----- -----
+記述方
+----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 <!-- リンク -->
-https://example.com テキスト (_blank) () 内の属性が不要な場合、記述の必要はありません
-
+カスタムタグ: https://example.com テキスト [_blank]
+生成タグ:
 <a href="http://example.com" target="_blank">テキスト</a>
 
 <!-- メールリンク -->
-xxx@example.com テキスト
-
+カスタムタグ: info@example.jp テキスト
+生成タグ:
 <a href="mailto:info@example.jp">テキスト</a>
 
 <!-- イメージ -->
-@img ./images/example.jpg テキスト
-<img src="./images/example.jpg" alt="テキスト">
+カスタムタグ: 画像URL [w 幅] [h 高さ] [alt 文字列]
+<ui-img>./images/main-sp.jpg w200 h300 文字列</ui-img>
+生成タグ:
+<img src="./images/example.jpg" width="幅" height="高さ" alt="文字列">
 
 <!-- ボタン -->
+テキスト
 <ui-submit>テキスト</ui-submit>
-
+生成タグ:
 <button type="submit">テキスト</button>
-(テキストを含めない場合「送信」と表示される)
 
-
-## コンテナタグ
+**コンテナタグ**
 
 <!-- UL -->
-<ui-ul>
-  テキスト 1
-  テキスト 2
+カスタムタグ: (ID、クラス名の指定可能)
+<ui-ul id="xxx" class="xxx">
+  テキスト
+  ...
 </ui-ul>
-
+生成タグ:
 <ul>
-  <li>テキスト 1</li>
-  <li>テキスト 2</li>
+  <li>テキスト</li>
+  ...
 </ul>
 
 <!-- DL -->
+カスタムタグ: (ID、クラス名の指定可能)
 <ui-dl>
-  テキスト テキストテキスト 1
-  テキスト テキストテキスト 2
+  テキスト テキストテキスト
+  ...
 </ui-dl>
-
-<dl>
+生成タグ:
+<dl id="xxx" class="xxx">
   <dt>テキスト</dt>
-  <dd>テキストテキスト 1</dd>
-  <dt>テキスト</dt>
-  <dd>テキストテキスト 2</dd>
+  <dd>テキストテキスト</dd>
+  ...
 </dl>

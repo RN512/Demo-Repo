@@ -4,6 +4,28 @@ class UiUl extends HTMLElement {
 
     const _ul = document.createElement('ul');
 
+
+    // class / id を引き継ぐ
+    if (this.hasAttribute('class')) {
+
+      _ul.setAttribute(
+        'class',
+        this.getAttribute('class')
+      );
+
+    }
+
+
+    if (this.hasAttribute('id')) {
+
+      _ul.setAttribute(
+        'id',
+        this.getAttribute('id')
+      );
+
+    }
+
+
     // 子要素を順番に処理
     Array.from(this.childNodes).forEach(node => {
 

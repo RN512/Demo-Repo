@@ -4,6 +4,28 @@ class UiDl extends HTMLElement {
 
     const _dl = document.createElement('dl');
 
+
+    // class / id を引き継ぐ
+    if (this.hasAttribute('class')) {
+
+      _dl.setAttribute(
+        'class',
+        this.getAttribute('class')
+      );
+
+    }
+
+
+    if (this.hasAttribute('id')) {
+
+      _dl.setAttribute(
+        'id',
+        this.getAttribute('id')
+      );
+
+    }
+
+
     const lines = UiParser.lines(this);
 
     lines.forEach(line => {
