@@ -39,13 +39,11 @@
       </h1>
 
       <nav>
-
-        <ui-ul>
+        <ui-ul class="full-char">
           #news お知らせ
           #products 商品のご紹介
           #shop 店舗のご案内
         </ui-ul>
-
       </nav>
 
       <picture>
@@ -53,7 +51,7 @@
         <img src="./images/main-pc.jpg" width="1920" height="1280" alt="創作">
       </picture>
 
-      <ui-ul>
+      <ui-ul class="online-store full-char">
         # オンラインストアを見る _blank
       </ui-ul>
 
@@ -62,11 +60,14 @@
 
     <main>
 
-      <section id="news">
+      <section class="news">
 
-        <h2>お知らせ News</h2>
+        <h2>
+          <span class="full-char">お知らせ</span>
+          <span class="half-char">News</span>
+        </h2>
 
-        <ui-dl>
+        <ui-dl class="full-char">
           2021.01.01 タイトルタイトルタイトルタイトル
           2021.01.01 タイトルタイトルタイトルタイトル
           2021.01.01 タイトルタイトルタイトルタイトル
@@ -75,64 +76,72 @@
 
       </section>
 
-      <section id="products">
+      <section class="create-new-values">
 
-        <h2>新しい価値の創造 Create New Values</h2>
+        <h2 class="full-char">
+          新しい価値の創造
+          <span class="half-char">Create New Values</span>
+        </h2>
+
+        <div>
+          <ui-img>
+            ./images/products_01.jpg w1200 h800 新しい価値の創造 Create New Values
+          </ui-img>
+          <p>テキストテキストテキストテキスト</p>
+        </div>
+
+      </section>
+
+      <section class="science-technology">
+
+        <h2 class="full-char">
+          <span class="full-char">科学と技術の調和</span>
+          <span class="half-char">Science &amp; Technology</span>
+        </h2>
+
+        <p>
+          <ui-img>
+            ./images/products_02.jpg w1200 h800 科学と技術の調和 Science &amp; Technology
+          </ui-img>
+        </p>
         <p>テキストテキストテキストテキスト</p>
 
       </section>
 
-      <section>
-
-        <h2>科学と技術の調和 Science &amp; Technology</h2>
-        <p>テキストテキストテキストテキスト</p>
-
-      </section>
-
-      <ui-button> ... </ui-button>
 
       <iframe frameborder="0" scrolling="no" src="https://www.openstreetmap.org/export/embed.html?bbox=139.728%2C35.657%2C139.737%2C35.663&amp;layer=mapnik&amp;marker=35.660177%2C139.732486"></iframe>
 
     </main>
 
 
+    <!--
+      (以下を想定して「数字、記号を全角文字から半角文字」に変更)
+      1. JavaScript などでの処理、データベースへの保存の容易性のため。
+      2. ユーザが、コピー&ペーストした際のデータの再利用のため。
+    -->
     <footer>
 
-      <div class="inner">
+      <h3>
+        <img src="./images/logo.svg" alt="創作">
+      </h3>
 
-        <div class="left-column">
-          <ui-ul>
-            # オンラインストアを見る _blank
-            info@example.jp お問い合わせ
-          </ui-ul>
-        </div>
+      <address class="full-char">
+        <p>〒106<span class="hyphen"></span>0032 東京都港区六本木5丁目×××××</p>
+        <p>電話：03<span class="hyphen"></span>xxxx<span class="hyphen"></span>xxxx</p>
+      </address>
 
-        <div class="right-column">
-          <h3>
-            <img src="./images/logo.svg" alt="創作">
-          </h3>
+      <nav>
+        <ui-ul class="full-char">
+          #news お知らせ
+          #products 商品のご紹介
+          #shop 店舗のご案内
+        </ui-ul>
+      </nav>
 
-          <!--
-            (以下の理由で「全角文字を半角文字」に変更)
-            1. JavaScript などでの処理、データベースへの保存の容易性のため。
-            2. ユーザが、コピー&ペーストした際のデータの再利用のため。
-          -->
-          <address>
-            <p>〒106<i class="char">-</i>0032 東京都港区六本木5丁目×××××</p>
-            <p>電話: 03<i class="char">-</i>xxxx<i class="char">-</i>xxxx</p>
-          </address>
-
-          <ui-ul>
-            <ui-img>
-              ./images/main-sp.jpg w200 h300 文字列
-            </ui-img>
-            #news お知らせ
-            #products 商品のご紹介
-            #shop 店舗のご案内
-          </ui-ul>
-        </div>
-
-      </div>
+      <ui-ul class="links full-char">
+        # オンラインストアを見る _blank
+        info@example.jp お問い合わせ
+      </ui-ul>
 
       <small>&copy; SOUSAKU</small>
 
